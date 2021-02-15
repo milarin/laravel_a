@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function top()
+    {
+        return view('top');
+    }
     /**
      * Display a listing of the resource.
      *
