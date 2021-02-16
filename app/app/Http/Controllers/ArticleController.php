@@ -18,11 +18,12 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $message = 'これはArtilceControllerのindexです';
         if ($request->filled('keyword')) {
             $keyword = $request->input('keyword');
+            $message = '検索結果：' . $keyword;
             $articles = Article::where('title', 'LIKE', "%{$keyword}%")->get();
         } else {
+            $message = 'これはArtilceControllerのindexです';
             $articles = Article::all();
         }
         return view('index', ['message' => $message, 'articles' => $articles, 'keyword' => $request->input]);

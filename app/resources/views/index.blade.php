@@ -17,6 +17,7 @@
     {{ Form::close() }}
   </div>
 
+  <h3 class="wrapper category-title">{{ $message }}</h3>
   <div class="wrapper main-content">
     <aside>
       <ul class="tags">
