@@ -8,9 +8,13 @@
 
 <div class="box wrapper">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/BoZ0Zwab6Oc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <!-- <form action="">
-      検索フォーム
-    </form> -->
+
+    {{ Form::open(['method' => 'get']) }}
+      {{ Form::label('keyword', 'キーワード:') }}
+      {{ Form::text('keyword', null, ['class' => '']) }}
+      {{ Form::submit('検索', ['class' => ''])}}
+      <a href="{{ route('article.list') }}">クリア</a>
+    {{ Form::close() }}
   </div>
 
   <div class="wrapper main-content">

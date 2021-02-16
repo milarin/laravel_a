@@ -16,12 +16,18 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $message = 'これはArtilceControllerのindexです';
-        $articles = Article::all();
-        return view('index', ['message' => $message, 'articles' => $articles]);
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $articles = Article::where('title', 'LIKE', "%{$keyword}%")->get();
+        } else {
+            $articles = Article::all();
+        }
+        return view('index', ['message' => $message, 'articles' => $articles, 'keyword' => $request->input]);
     }
+            
 
     /**
      * Show the form for creating a new resource.
