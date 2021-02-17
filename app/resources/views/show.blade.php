@@ -13,6 +13,7 @@
 
           <!-- <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
           <p class="title">{{ $article->title }}</p>
+          <p>{{ $article->channel->channel_name }}</p>
         <p>
             <a href="{{ route('article.list') }}">一覧に戻る</a>
         </p>
