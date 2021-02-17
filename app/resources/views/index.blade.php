@@ -35,6 +35,12 @@
         <li><a href="">代7世代(USUM)</a></li>
         <li><a href="">代8世代(剣盾)</a></li>
       </ul>
+
+      <ul class="tags">
+      @foreach($channels as $channel)
+        <li><a href="#">{{ $channel->channel_name }}</a></li>
+      @endforeach
+      </ul>
     </aside>
 
     <main>

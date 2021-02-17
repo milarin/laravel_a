@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Channel;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -18,6 +19,7 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+        $channels = Channel::all();
         if ($request->filled('keyword')) {
             $keyword = $request->input('keyword');
             $message = '検索結果：' . $keyword;
@@ -26,7 +28,7 @@ class ArticleController extends Controller
             $message = 'これはArtilceControllerのindexです';
             $articles = Article::all();
         }
-        return view('index', ['message' => $message, 'articles' => $articles, 'keyword' => $request->input]);
+        return view('index', ['message' => $message, 'articles' => $articles, 'keyword' => $request->input, 'channels' => $channels]);
     }
             
 
