@@ -42,7 +42,7 @@
       <div class="item">
         <a href='{{ route("article.show", ["id" =>  $article->id]) }}'>
           <img src="{{ asset('image/' . $article->img_url) }}" alt="" class="thumbnail">
-          <img src="image/logo.jpeg" alt="" class="channel-icon">
+          <img src="{{ asset('image/' . $article->channel->channel_icon_url) }}" alt="" class="channel-icon">
           <p class="title">{{ $article->title }}</p>
         </a>
       </div><!-- .item -->
